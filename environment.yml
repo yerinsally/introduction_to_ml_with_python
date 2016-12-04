@@ -1,0 +1,13 @@
+name: introduction_to_ml_with_python
+dependencies:
+- ipython
+- matplotlib
+- numpy
+- pandas
+- python=3
+- scipy
+- ipython-notebook
+- scikit-learn
+- pillow
+prefix: /Users/rickypark/anaconda/envs/introduction_to_ml_with_python
+
