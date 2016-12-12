@@ -25,11 +25,11 @@ def plot_knn_regression(n_neighbors=1):
                           head_width=0, fc='k', ec='k')
 
     train, = plt.plot(X, y, 'o')
-    test, = plt.plot(X_test, -3 * np.ones(len(X_test)), '*', c='g', markersize=20)
+    test, = plt.plot(X_test, -3 * np.ones(len(X_test)), '*', c='#50FF50', markersize=20)
     pred, = plt.plot(X_test, y_pred, '*', c='b', markersize=20)
     plt.vlines(X_test, -3.1, 3.1, linestyle="--")
     plt.legend([train, test, pred],
-               ["training data/target", "test data", "test prediction"], ncol=3, loc=(.1, 1.025))
+               ["훈련 데이터/타겟", "테스트 데이터", "테스트 예측"], ncol=3, loc=(.1, 1.025))
     plt.ylim(-3.1, 3.1)
-    plt.xlabel("Feature")
-    plt.ylabel("Target")
+    plt.xlabel("특성")
+    plt.ylabel("타겟")

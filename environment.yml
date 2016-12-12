@@ -9,5 +9,7 @@ dependencies:
 - ipython-notebook
 - scikit-learn
 - pillow
+- pip:
+    - graphviz
 prefix: /Users/rickypark/anaconda/envs/introduction_to_ml_with_python
 

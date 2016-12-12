@@ -24,7 +24,7 @@ def tree_image(tree, fout=None):
         x[0, 0] = 0
         return x
     dot_data = StringIO()
-    export_graphviz(tree, out_file=dot_data, max_depth=3, impurity=False)
+    export_graphviz(tree, out_file=dot_data, max_depth=9, impurity=False)
     data = dot_data.getvalue()
     #data = re.sub(r"gini = 0\.[0-9]+\\n", "", dot_data.getvalue())
     data = re.sub(r"samples = [0-9]+\\n", "", data)
@@ -91,5 +91,5 @@ def plot_tree_partition(X, y, tree, ax=None):
 def plot_tree(X, y, max_depth=1, ax=None):
     tree = DecisionTreeClassifier(max_depth=max_depth, random_state=0).fit(X, y)
     ax = plot_tree_partition(X, y, tree, ax=ax)
-    ax.set_title("depth = %d" % max_depth)
+    ax.set_title("깊이 = %d" % max_depth)
     return tree
