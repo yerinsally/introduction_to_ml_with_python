@@ -9,12 +9,12 @@ def plot_logistic_regression_graph():
 
     for i in range(4):
         inputs.node("x[%d]" % i, labelloc="c")
-    inputs.body.append('label = "inputs"')
+    inputs.body.append('label = "입력"')
     inputs.body.append('color = "white"')
 
     lr_graph.subgraph(inputs)
 
-    output.body.append('label = "output"')
+    output.body.append('label = "출력"')
     output.body.append('color = "white"')
     output.node("y")
 
@@ -37,17 +37,17 @@ def plot_single_hidden_layer_graph():
     for i in range(4):
         inputs.node("x[%d]" % i)
 
-    inputs.body.append('label = "inputs"')
+    inputs.body.append('label = "입력"')
     inputs.body.append('color = "white"')
 
-    hidden.body.append('label = "hidden layer"')
+    hidden.body.append('label = "은닉층"')
     hidden.body.append('color = "white"')
 
     for i in range(3):
         hidden.node("h%d" % i, label="h[%d]" % i)
 
     output.node("y")
-    output.body.append('label = "output"')
+    output.body.append('label = "출력"')
     output.body.append('color = "white"')
 
     nn_graph.subgraph(inputs)
@@ -77,7 +77,7 @@ def plot_two_hidden_layer_graph():
     for i in range(4):
         inputs.node("x[%d]" % i)
 
-    inputs.body.append('label = "inputs"')
+    inputs.body.append('label = "입력"')
     inputs.body.append('color = "white"')
 
     for i in range(3):
@@ -86,14 +86,14 @@ def plot_two_hidden_layer_graph():
     for i in range(3):
         hidden2.node("h2[%d]" % i)
 
-    hidden.body.append('label = "hidden layer 1"')
+    hidden.body.append('label = "은닉층 1"')
     hidden.body.append('color = "white"')
 
-    hidden2.body.append('label = "hidden layer 2"')
+    hidden2.body.append('label = "은닉층 2"')
     hidden2.body.append('color = "white"')
 
     output.node("y")
-    output.body.append('label = "output"')
+    output.body.append('label = "출력"')
     output.body.append('color = "white"')
 
     nn_graph.subgraph(inputs)
