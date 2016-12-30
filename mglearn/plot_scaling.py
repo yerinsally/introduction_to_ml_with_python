@@ -18,7 +18,7 @@ def plot_scaling():
 
     main_ax.set_xlim(-maxx + 1, maxx + 1)
     main_ax.set_ylim(-maxy + 1, maxy + 1)
-    main_ax.set_title("Original Data")
+    main_ax.set_title("원본 데이터")
     other_axes = [plt.subplot2grid((2, 4), (i, j)) for j in range(2, 4) for i in range(2)]
 
     for ax, scaler in zip(other_axes, [StandardScaler(), RobustScaler(),
