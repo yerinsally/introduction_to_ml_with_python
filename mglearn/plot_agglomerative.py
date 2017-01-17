@@ -28,7 +28,7 @@ def plot_agglomerative_algorithm():
         ax.set_ylim(y_min, y_max)
         agg.n_clusters = X.shape[0] - i
         agg.fit(X)
-        ax.set_title("Step %d" % i)
+        ax.set_title("단계 %d" % i)
         ax.scatter(X[:, 0], X[:, 1], s=60, c='grey')
         bins = np.bincount(agg.labels_)
         for cluster in range(agg.n_clusters):
@@ -44,7 +44,7 @@ def plot_agglomerative_algorithm():
                 ax.contour(xx, yy, scores.reshape(100, 100), levels=[levels],
                            colors='k', linestyles='solid', linewidths=2)
 
-    axes[0, 0].set_title("Initialization")
+    axes[0, 0].set_title("초기화")
 
 
 def plot_agglomerative():

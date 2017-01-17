@@ -21,16 +21,16 @@ def plot_kmeans_algorithm():
                                                                 '#50ff50'])}):
         fig, axes = plt.subplots(3, 3, figsize=(10, 8), subplot_kw={'xticks': (), 'yticks': ()})
         axes = axes.ravel()
-        axes[0].set_title("Input data")
+        axes[0].set_title("입력 데이터")
         discrete_scatter(X[:, 0], X[:, 1], ax=axes[0], markers=['o'], c='w')
 
-        axes[1].set_title("Initialization")
+        axes[1].set_title("초기화")
         init = X[:3, :]
         discrete_scatter(X[:, 0], X[:, 1], ax=axes[1], markers=['o'], c='w')
         discrete_scatter(init[:, 0], init[:, 1], [0, 1, 2], ax=axes[1],
                          markers=['^'], markeredgewidth=2)
 
-        axes[2].set_title("Assign Points (1)")
+        axes[2].set_title("포인트 할당 (1)")
         km = KMeans(n_clusters=3, init=init, max_iter=1, n_init=1).fit(X)
         centers = km.cluster_centers_
         # need to compute labels by hand. scikit-learn does two e-steps for max_iter=1
@@ -41,13 +41,13 @@ def plot_kmeans_algorithm():
         discrete_scatter(init[:, 0], init[:, 1], [0, 1, 2],
                          ax=axes[2], markers=['^'], markeredgewidth=2)
 
-        axes[3].set_title("Recompute Centers (1)")
+        axes[3].set_title("중심 재계산 (1)")
         discrete_scatter(X[:, 0], X[:, 1], labels, markers=['o'],
                          ax=axes[3])
         discrete_scatter(centers[:, 0], centers[:, 1], [0, 1, 2],
                          ax=axes[3], markers=['^'], markeredgewidth=2)
 
-        axes[4].set_title("Reassign Points (2)")
+        axes[4].set_title("포인트 재할당 (2)")
         km = KMeans(n_clusters=3, init=init, max_iter=1, n_init=1).fit(X)
         labels = km.labels_
         discrete_scatter(X[:, 0], X[:, 1], labels, markers=['o'],
@@ -56,14 +56,14 @@ def plot_kmeans_algorithm():
                          ax=axes[4], markers=['^'], markeredgewidth=2)
 
         km = KMeans(n_clusters=3, init=init, max_iter=2, n_init=1).fit(X)
-        axes[5].set_title("Recompute Centers (2)")
+        axes[5].set_title("중심 재계산 (2)")
         centers = km.cluster_centers_
         discrete_scatter(X[:, 0], X[:, 1], labels, markers=['o'],
                          ax=axes[5])
         discrete_scatter(centers[:, 0], centers[:, 1], [0, 1, 2],
                          ax=axes[5], markers=['^'], markeredgewidth=2)
 
-        axes[6].set_title("Reassign Points (3)")
+        axes[6].set_title("포인트 재할당 (3)")
         labels = km.labels_
         discrete_scatter(X[:, 0], X[:, 1], labels, markers=['o'],
                          ax=axes[6])
@@ -71,7 +71,7 @@ def plot_kmeans_algorithm():
                                    ax=axes[6], markers=['^'],
                                    markeredgewidth=2)
 
-        axes[7].set_title("Recompute Centers (3)")
+        axes[7].set_title("중심 재계산 (3)")
         km = KMeans(n_clusters=3, init=init, max_iter=3, n_init=1).fit(X)
         centers = km.cluster_centers_
         discrete_scatter(X[:, 0], X[:, 1], labels, markers=['o'],
@@ -79,7 +79,10 @@ def plot_kmeans_algorithm():
         discrete_scatter(centers[:, 0], centers[:, 1], [0, 1, 2],
                          ax=axes[7], markers=['^'], markeredgewidth=2)
         axes[8].set_axis_off()
-        axes[8].legend(markers, ["Cluster 0", "Cluster 1", "Cluster 2"], loc='best')
+        axes[8].legend(markers, ["클러스터 0", "클러스터 1", "클"
+                                                     ""
+                                                     ""
+                                                     "러스터 2"], loc='best')
 
 
 def plot_kmeans_boundaries():
@@ -116,14 +119,14 @@ def plot_kmeans_faces(km, pca, X_pca, X_people, y_people, target_names):
     rec = plt.Rectangle([-5, -30], 73, 1295, fill=False, lw=2)
     rec = axes[0, 0].add_patch(rec)
     rec.set_clip_on(False)
-    axes[0, 0].text(0, -40, "Center")
+    axes[0, 0].text(0, -40, "중심")
 
     rec = plt.Rectangle([-5, -30], 385, 1295, fill=False, lw=2)
     rec = axes[0, 1].add_patch(rec)
     rec.set_clip_on(False)
-    axes[0, 1].text(0, -40, "Close to center")
+    axes[0, 1].text(0, -40, "중심에서 가까운 이미지")
 
     rec = plt.Rectangle([-5, -30], 385, 1295, fill=False, lw=2)
     rec = axes[0, 6].add_patch(rec)
     rec.set_clip_on(False)
-    axes[0, 6].text(0, -40, "Far from center")
+    axes[0, 6].text(0, -40, "중심에서 먼 이미지")

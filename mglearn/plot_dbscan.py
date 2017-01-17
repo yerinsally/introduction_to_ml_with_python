@@ -25,7 +25,7 @@ def plot_dbscan():
             dbscan = DBSCAN(min_samples=min_samples, eps=eps)
             # get cluster assignments
             clusters = dbscan.fit_predict(X)
-            print("min_samples: %d eps: %f  cluster: %s" % (min_samples, eps, clusters))
+            print("min_samples: %d eps: %f  클러스터: %s" % (min_samples, eps, clusters))
             if np.any(clusters == -1):
                 c = ['w'] + colors
                 m = ['o'] + markers

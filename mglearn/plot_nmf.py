@@ -77,6 +77,6 @@ def plot_nmf_faces(X_train, X_test, image_shape):
             a.imshow(X_test_back[i].reshape(image_shape), vmin=0, vmax=1)
 
     # label the top row
-    axes[0, 0].set_title("original image")
+    axes[0, 0].set_title("원본 이미지")
     for ax, n_components in zip(axes[0, 1:], [10, 50, 100, 500]):
-        ax.set_title("%d components" % n_components)
+        ax.set_title("성분 %d개" % n_components)
