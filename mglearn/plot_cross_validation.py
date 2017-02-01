@@ -2,12 +2,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-def plot_label_kfold():
+def plot_group_kfold():
     from sklearn.model_selection import GroupKFold
     groups = [0, 0, 0, 1, 1, 1, 1, 2, 2, 3, 3, 3]
 
     plt.figure(figsize=(10, 2))
-    plt.title("LabelKFold")
+    # plt.title("LabelKFold")
 
     axes = plt.gca()
     axes.set_frame_on(False)
@@ -36,18 +36,18 @@ def plot_label_kfold():
     axes.barh(bottom=[n_iter] * n_folds, width=[1 - 0.1] * n_folds, left=np.arange(n_folds) * n_samples_per_fold, height=.6, color="w")
 
     for i in range(12):
-        axes.text((i + .5) * n_samples_per_fold, 3.5, "%d" % labels[i], horizontalalignment="center")
+        axes.text((i + .5) * n_samples_per_fold, 3.5, "%d" % groups[i], horizontalalignment="center")
     #ax.set_ylim(4, -0.1)
             
     axes.invert_yaxis()
     axes.set_xlim(0, n_samples + 1)
-    axes.set_ylabel("CV iterations")
-    axes.set_xlabel("Data points")
+    axes.set_ylabel("크로스 밸리데이션 반복")
+    axes.set_xlabel("데이터 포인트")
     axes.set_xticks(np.arange(n_samples) + .5)
     axes.set_xticklabels(np.arange(1, n_samples + 1))
     axes.set_yticks(np.arange(n_iter + 1) + .3)
-    axes.set_yticklabels(["Split %d" % x for x in range(1, n_iter + 1)] + ["Group"]);
-    plt.legend([boxes[0], boxes[1]], ["Training set", "Test set"], loc=(1, .3));
+    axes.set_yticklabels(["분할 %d" % x for x in range(1, n_iter + 1)] + ["그룹"]);
+    plt.legend([boxes[0], boxes[1]], ["훈련 세트", "테스트 세트"], loc=(1, .3));
     plt.tight_layout()
 
 
@@ -55,7 +55,7 @@ def plot_label_kfold():
 def plot_shuffle_split():
     from sklearn.model_selection import ShuffleSplit
     plt.figure(figsize=(10, 2))
-    plt.title("ShuffleSplit with 10 points, train_size=5, test_size=2, n_splits=4")
+    # plt.title("ShuffleSplit with 10 points, train_size=5, test_size=2, n_splits=4")
 
     axes = plt.gca()
     axes.set_frame_on(False)
@@ -83,24 +83,24 @@ def plot_shuffle_split():
 
     axes.invert_yaxis()
     axes.set_xlim(0, n_samples + 1)
-    axes.set_ylabel("CV iterations")
-    axes.set_xlabel("Data points")
+    axes.set_ylabel("크로스 밸리데이션 반복")
+    axes.set_xlabel("데이터 포인트")
     axes.set_xticks(np.arange(n_samples) + .5)
     axes.set_xticklabels(np.arange(1, n_samples + 1))
     axes.set_yticks(np.arange(n_iter) + .3)
-    axes.set_yticklabels(["Split %d" % x for x in range(1, n_iter + 1)]);
+    axes.set_yticklabels(["분할 %d" % x for x in range(1, n_iter + 1)]);
     # legend hacked for this random state
-    plt.legend([boxes[1], boxes[0], boxes[2]], ["Training set", "Test set", "Not selected"], loc=(1, .3));
+    plt.legend([boxes[1], boxes[0], boxes[2]], ["훈련 세트", "테스트 세트", "미선택 세트"], loc=(1, .3));
     plt.tight_layout()
-    plt.savefig("images/06_shuffle_split.png")
-    plt.close()
+    # plt.savefig("images/06_shuffle_split.png")
+    # plt.close()
 
 
 def plot_stratified_cross_validation():
     fig, both_axes = plt.subplots(2, 1, figsize=(12, 5))
     #plt.title("cross_validation_not_stratified")
     axes = both_axes[0]
-    axes.set_title("Standard cross-validation with sorted class labels")
+    axes.set_title("순서대로 나열된 레이블에 적용한 기본 크로스 밸리데이션")
 
     axes.set_frame_on(False)
 
@@ -119,26 +119,26 @@ def plot_stratified_cross_validation():
 
     axes.invert_yaxis()
     axes.set_xlim(0, n_samples + 1)
-    axes.set_ylabel("CV iterations")
-    axes.set_xlabel("Data points")
+    axes.set_ylabel("크로스 밸리데이션 반복")
+    axes.set_xlabel("데이터 포인")
     axes.set_xticks(np.arange(n_samples_per_fold / 2., n_samples, n_samples_per_fold))
-    axes.set_xticklabels(["Fold %d" % x for x in range(1, n_folds + 1)])
+    axes.set_xticklabels(["폴드 %d" % x for x in range(1, n_folds + 1)])
     axes.set_yticks(np.arange(n_folds + 1) + .3)
-    axes.set_yticklabels(["Split %d" % x for x in range(1, n_folds + 1)] + ["Class label"])
+    axes.set_yticklabels(["분할 %d" % x for x in range(1, n_folds + 1)] + ["클래스 레이블"])
     for i in range(3):
-        axes.text((i + .5) * n_samples_per_fold, 3.5, "Class %d" % i, horizontalalignment="center")
+        axes.text((i + .5) * n_samples_per_fold, 3.5, "클래스 %d" % i, horizontalalignment="center")
 
 
     ax = both_axes[1]
-    ax.set_title("Stratified Cross-validation")
+    ax.set_title("계층별 크로스 밸리데이션")
     ax.set_frame_on(False)
     ax.invert_yaxis()
     ax.set_xlim(0, n_samples + 1)
-    ax.set_ylabel("CV iterations")
-    ax.set_xlabel("Data points")
+    ax.set_ylabel("크로스 밸리데이션 반복")
+    ax.set_xlabel("데이터 포인트")
 
     ax.set_yticks(np.arange(n_folds + 1) + .3)
-    ax.set_yticklabels(["Split %d" % x for x in range(1, n_folds + 1)] + ["Class label"]);
+    ax.set_yticklabels(["분할 %d" % x for x in range(1, n_folds + 1)] + ["클래스 레이블"]);
 
     n_subsplit = n_samples_per_fold / 3.
     for i in range(n_folds):
@@ -153,16 +153,15 @@ def plot_stratified_cross_validation():
     ax.barh(bottom=[n_folds] * n_folds, width=[n_samples_per_fold - 1] * n_folds, left=np.arange(n_folds) * n_samples_per_fold, height=.6, color="w")
 
     for i in range(3):
-        ax.text((i + .5) * n_samples_per_fold, 3.5, "Class %d" % i, horizontalalignment="center")
+        ax.text((i + .5) * n_samples_per_fold, 3.5, "클래스 %d" % i, horizontalalignment="center")
     ax.set_ylim(4, -0.1)
-    plt.legend([training_bars[0], test_bars[0]], ['Training data', 'Test data'], loc=(1.05, 1), frameon=False);
+    plt.legend([training_bars[0], test_bars[0]], ['훈련 데이터', '테스트 데이터'], loc=(1.05, 1), frameon=False);
 
     fig.tight_layout()
 
 
 def plot_cross_validation():
     plt.figure(figsize=(12, 2))
-    plt.title("cross_validation")
     axes = plt.gca()
     axes.set_frame_on(False)
 
@@ -179,11 +178,11 @@ def plot_cross_validation():
                  left=i * n_samples_per_fold, height=.6, color=colors, hatch="//")
     axes.invert_yaxis()
     axes.set_xlim(0, n_samples + 1)
-    plt.ylabel("CV iterations")
-    plt.xlabel("Data points")
-    plt.xticks(np.arange(n_samples_per_fold / 2., n_samples, n_samples_per_fold), ["Fold %d" % x for x in range(1, n_folds + 1)])
-    plt.yticks(np.arange(n_folds) + .3, ["Split %d" % x for x in range(1, n_folds + 1)])
-    plt.legend([bars[0], bars[4]], ['Training data', 'Test data'], loc=(1.05, 0.4), frameon=False);
+    plt.ylabel("크로스 밸리데이션 반복")
+    plt.xlabel("데이터 포인트")
+    plt.xticks(np.arange(n_samples_per_fold / 2., n_samples, n_samples_per_fold), ["폴드 %d" % x for x in range(1, n_folds + 1)])
+    plt.yticks(np.arange(n_folds) + .3, ["분할 %d" % x for x in range(1, n_folds + 1)])
+    plt.legend([bars[0], bars[4]], ['훈련 데이터', '테스트 데이터'], loc=(1.05, 0.4), frameon=False);
 
 
 def plot_threefold_split():
@@ -196,8 +195,8 @@ def plot_threefold_split():
     axis.set_ylim(-.1, .8)
     axis.set_xlim(-0.1, 20.1)
     axis.set_xticks([6, 13.3, 17.5])
-    axis.set_xticklabels(["training set", "validation set", "test set"], fontdict={'fontsize': 20});
+    axis.set_xticklabels(["훈련 세트", "밸리데이션 세트", "테스트 세트"], fontdict={'fontsize': 20});
     axis.tick_params(length=0, labeltop=True, labelbottom=False)
-    axis.text(6, -.3, "Model fitting", fontdict={'fontsize': 13}, horizontalalignment="center")
-    axis.text(13.3, -.3, "Parameter selection", fontdict={'fontsize': 13}, horizontalalignment="center")
-    axis.text(17.5, -.3, "Evaluation", fontdict={'fontsize': 13}, horizontalalignment="center")
+    axis.text(6, -.3, "모델 훈련", fontdict={'fontsize': 13}, horizontalalignment="center")
+    axis.text(13.3, -.3, "파라미터 선택", fontdict={'fontsize': 13}, horizontalalignment="center")
+    axis.text(17.5, -.3, "모델 평가", fontdict={'fontsize': 13}, horizontalalignment="center")
