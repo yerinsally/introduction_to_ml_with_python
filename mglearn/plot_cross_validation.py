@@ -195,7 +195,7 @@ def plot_threefold_split():
     axis.set_ylim(-.1, .8)
     axis.set_xlim(-0.1, 20.1)
     axis.set_xticks([6, 13.3, 17.5])
-    axis.set_xticklabels(["훈련 세트", "밸리데이션 세트", "테스트 세트"], fontdict={'fontsize': 20});
+    axis.set_xticklabels(["훈련 세트", "검증 세트", "테스트 세트"], fontdict={'fontsize': 20});
     axis.tick_params(length=0, labeltop=True, labelbottom=False)
     axis.text(6, -.3, "모델 훈련", fontdict={'fontsize': 13}, horizontalalignment="center")
     axis.text(13.3, -.3, "파라미터 선택", fontdict={'fontsize': 13}, horizontalalignment="center")
