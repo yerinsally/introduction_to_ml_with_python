@@ -7,7 +7,7 @@ def plot_group_kfold():
     groups = [0, 0, 0, 1, 1, 1, 1, 2, 2, 3, 3, 3]
 
     plt.figure(figsize=(10, 2))
-    # plt.title("LabelKFold")
+    plt.title("GroupKFold")
 
     axes = plt.gca()
     axes.set_frame_on(False)
@@ -26,19 +26,22 @@ def plot_group_kfold():
 
     for i in range(n_folds):
         # test is grey
-        colors = ["grey"  if x == 2 else "white" for x in mask[:, i]]
+        colors = ["grey" if x == 2 else "white" for x in mask[:, i]]
         # not selected has no hatch
-        
-        boxes = axes.barh(bottom=range(n_iter), width=[1 - 0.1] * n_iter, left=i * n_samples_per_fold, height=.6, color=colors, hatch="//")
+
+        boxes = axes.barh(bottom=range(n_iter), width=[1 - 0.1] * n_iter,
+                          left=i * n_samples_per_fold, height=.6, color=colors,
+                          hatch="//", edgecolor="k")
         for j in np.where(mask[:, i] == 0)[0]:
             boxes[j].set_hatch("")
-            
-    axes.barh(bottom=[n_iter] * n_folds, width=[1 - 0.1] * n_folds, left=np.arange(n_folds) * n_samples_per_fold, height=.6, color="w")
+
+    axes.barh(bottom=[n_iter] * n_folds, width=[1 - 0.1] * n_folds,
+              left=np.arange(n_folds) * n_samples_per_fold, height=.6,
+              color="w", edgecolor='k')
 
     for i in range(12):
-        axes.text((i + .5) * n_samples_per_fold, 3.5, "%d" % groups[i], horizontalalignment="center")
-    #ax.set_ylim(4, -0.1)
-            
+        axes.text((i + .5) * n_samples_per_fold, 3.5, "%d" %
+                  groups[i], horizontalalignment="center")
     axes.invert_yaxis()
     axes.set_xlim(0, n_samples + 1)
     axes.set_ylabel("크로스 밸리데이션 반복")
@@ -55,7 +58,8 @@ def plot_group_kfold():
 def plot_shuffle_split():
     from sklearn.model_selection import ShuffleSplit
     plt.figure(figsize=(10, 2))
-    # plt.title("ShuffleSplit with 10 points, train_size=5, test_size=2, n_splits=4")
+    plt.title("ShuffleSplit with 10 points"
+              ", train_size=5, test_size=2, n_splits=4")
 
     axes = plt.gca()
     axes.set_frame_on(False)
@@ -74,10 +78,12 @@ def plot_shuffle_split():
 
     for i in range(n_folds):
         # test is grey
-        colors = ["grey"  if x == 2 else "white" for x in mask[:, i]]
+        colors = ["grey" if x == 2 else "white" for x in mask[:, i]]
         # not selected has no hatch
-        
-        boxes = axes.barh(bottom=range(n_iter), width=[1 - 0.1] * n_iter, left=i * n_samples_per_fold, height=.6, color=colors, hatch="//")
+
+        boxes = axes.barh(bottom=range(n_iter), width=[1 - 0.1] * n_iter,
+                          left=i * n_samples_per_fold, height=.6, color=colors,
+                          hatch="//", edgecolor='k')
         for j in np.where(mask[:, i] == 0)[0]:
             boxes[j].set_hatch("")
 
@@ -98,7 +104,7 @@ def plot_shuffle_split():
 
 def plot_stratified_cross_validation():
     fig, both_axes = plt.subplots(2, 1, figsize=(12, 5))
-    #plt.title("cross_validation_not_stratified")
+    # plt.title("cross_validation_not_stratified")
     axes = both_axes[0]
     axes.set_title("순서대로 나열된 레이블에 적용한 기본 크로스 밸리데이션")
 
@@ -113,9 +119,13 @@ def plot_stratified_cross_validation():
     for i in range(n_folds):
         colors = ["w"] * n_folds
         colors[i] = "grey"
-        axes.barh(bottom=range(n_folds), width=[n_samples_per_fold - 1] * n_folds, left=i * n_samples_per_fold, height=.6, color=colors, hatch="//")
-        
-    axes.barh(bottom=[n_folds] * n_folds, width=[n_samples_per_fold - 1] * n_folds, left=np.arange(3) * n_samples_per_fold, height=.6, color="w")
+        axes.barh(bottom=range(n_folds), width=[n_samples_per_fold - 1] *
+                  n_folds, left=i * n_samples_per_fold, height=.6,
+                  color=colors, hatch="//", edgecolor='k')
+
+    axes.barh(bottom=[n_folds] * n_folds, width=[n_samples_per_fold - 1] *
+              n_folds, left=np.arange(3) * n_samples_per_fold, height=.6,
+              color="w", edgecolor='k')
 
     axes.invert_yaxis()
     axes.set_xlim(0, n_samples + 1)
@@ -142,15 +152,26 @@ def plot_stratified_cross_validation():
 
     n_subsplit = n_samples_per_fold / 3.
     for i in range(n_folds):
-        test_bars = ax.barh(bottom=[i] * n_folds, width=[n_subsplit - 1] * n_folds, left=np.arange(n_folds) * n_samples_per_fold + i * n_subsplit, height=.6, color="grey", hatch="//")
+        test_bars = ax.barh(
+            bottom=[i] * n_folds, width=[n_subsplit - 1] * n_folds,
+            left=np.arange(n_folds) * n_samples_per_fold + i * n_subsplit,
+            height=.6, color="grey", hatch="//", edgecolor='k')
 
     w = 2 * n_subsplit - 1
-    ax.barh(bottom=[0] * n_folds, width=[w] * n_folds, left=np.arange(n_folds) * n_samples_per_fold + (0 + 1) * n_subsplit, height=.6, color="w", hatch="//")
-    ax.barh(bottom=[1] * (n_folds + 1), width=[w / 2., w, w, w / 2.], left=np.maximum(0, np.arange(n_folds + 1) * n_samples_per_fold - n_subsplit), height=.6, color="w", hatch="//")
-    training_bars = ax.barh(bottom=[2] * n_folds, width=[w] * n_folds, left=np.arange(n_folds) * n_samples_per_fold , height=.6, color="w", hatch="//")
+    ax.barh(bottom=[0] * n_folds, width=[w] * n_folds, left=np.arange(n_folds)
+            * n_samples_per_fold + (0 + 1) * n_subsplit, height=.6, color="w",
+            hatch="//", edgecolor='k')
+    ax.barh(bottom=[1] * (n_folds + 1), width=[w / 2., w, w, w / 2.],
+            left=np.maximum(0, np.arange(n_folds + 1) * n_samples_per_fold -
+                            n_subsplit), height=.6, color="w", hatch="//",
+            edgecolor='k')
+    training_bars = ax.barh(bottom=[2] * n_folds, width=[w] * n_folds,
+                            left=np.arange(n_folds) * n_samples_per_fold,
+                            height=.6, color="w", hatch="//", edgecolor='k')
 
-        
-    ax.barh(bottom=[n_folds] * n_folds, width=[n_samples_per_fold - 1] * n_folds, left=np.arange(n_folds) * n_samples_per_fold, height=.6, color="w")
+    ax.barh(bottom=[n_folds] * n_folds, width=[n_samples_per_fold - 1] *
+            n_folds, left=np.arange(n_folds) * n_samples_per_fold, height=.6,
+            color="w", edgecolor='k')
 
     for i in range(3):
         ax.text((i + .5) * n_samples_per_fold, 3.5, "클래스 %d" % i, horizontalalignment="center")
@@ -174,8 +195,10 @@ def plot_cross_validation():
     for i in range(n_folds):
         colors = ["w"] * n_folds
         colors[i] = "grey"
-        bars = plt.barh(bottom=range(n_folds), width=[n_samples_per_fold - 0.1] * n_folds,
-                 left=i * n_samples_per_fold, height=.6, color=colors, hatch="//")
+        bars = plt.barh(
+            bottom=range(n_folds), width=[n_samples_per_fold - 0.1] * n_folds,
+            left=i * n_samples_per_fold, height=.6, color=colors, hatch="//",
+            edgecolor='k')
     axes.invert_yaxis()
     axes.set_xlim(0, n_samples + 1)
     plt.ylabel("크로스 밸리데이션 반복")
@@ -188,7 +211,8 @@ def plot_cross_validation():
 def plot_threefold_split():
     plt.figure(figsize=(15, 1))
     axis = plt.gca()
-    bars = axis.barh([0, 0, 0], [11.9, 2.9, 4.9], left=[0, 12, 15], color=['white', 'grey', 'grey'], hatch="//")
+    bars = axis.barh([0, 0, 0], [11.9, 2.9, 4.9], left=[0, 12, 15], color=[
+                     'white', 'grey', 'grey'], hatch="//", edgecolor='k')
     bars[2].set_hatch(r"")
     axis.set_yticks(())
     axis.set_frame_on(False)
