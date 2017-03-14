@@ -9,17 +9,20 @@ from cycler import cycler
 import matplotlib
 matplotlib.rc('font', family='NanumBarunGothic')
 
-#set_matplotlib_formats('png', 'svg')
 set_matplotlib_formats('pdf', 'png')
 plt.rcParams['savefig.dpi'] = 300
+plt.rcParams['figure.dpi'] = 300
 plt.rcParams['image.cmap'] = "viridis"
 plt.rcParams['image.interpolation'] = "none"
 plt.rcParams['savefig.bbox'] = "tight"
 plt.rcParams['lines.linewidth'] = 2
 plt.rcParams['legend.numpoints'] = 1
+plt.rcParams['axes.xmargin'] = 0.00
+plt.rcParams['axes.ymargin'] = 0.00
 plt.rc('axes', prop_cycle=(
     cycler('color', mglearn.plot_helpers.cm_cycle.colors) +
     cycler('linestyle', ['-', '-', "--", (0, (3, 3)), (0, (1.5, 1.5))])))
+
 
 np.set_printoptions(precision=3, suppress=True)
 

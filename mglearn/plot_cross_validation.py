@@ -23,7 +23,6 @@ def plot_group_kfold():
         mask[i, train] = 1
         mask[i, test] = 2
 
-
     for i in range(n_folds):
         # test is grey
         colors = ["grey" if x == 2 else "white" for x in mask[:, i]]
@@ -54,7 +53,6 @@ def plot_group_kfold():
     plt.tight_layout()
 
 
-
 def plot_shuffle_split():
     from sklearn.model_selection import ShuffleSplit
     plt.figure(figsize=(10, 2))
@@ -74,7 +72,6 @@ def plot_shuffle_split():
     for i, (train, test) in enumerate(ss.split(range(10))):
         mask[i, train] = 1
         mask[i, test] = 2
-
 
     for i in range(n_folds):
         # test is grey
@@ -115,7 +112,6 @@ def plot_stratified_cross_validation():
 
     n_samples_per_fold = n_samples / float(n_folds)
 
-
     for i in range(n_folds):
         colors = ["w"] * n_folds
         colors[i] = "grey"
@@ -137,7 +133,6 @@ def plot_stratified_cross_validation():
     axes.set_yticklabels(["분할 %d" % x for x in range(1, n_folds + 1)] + ["클래스 레이블"])
     for i in range(3):
         axes.text((i + .5) * n_samples_per_fold, 3.5, "클래스 %d" % i, horizontalalignment="center")
-
 
     ax = both_axes[1]
     ax.set_title("계층별 크로스 밸리데이션")
@@ -190,7 +185,6 @@ def plot_cross_validation():
     n_samples = 25
 
     n_samples_per_fold = n_samples / float(n_folds)
-
 
     for i in range(n_folds):
         colors = ["w"] * n_folds

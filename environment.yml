@@ -9,7 +9,10 @@ dependencies:
 - ipython-notebook
 - scikit-learn
 - pillow
+- spacy
+- nltk
 - pip:
+    - watermark
     - graphviz
     - konlpy
     - JPype1-py3
