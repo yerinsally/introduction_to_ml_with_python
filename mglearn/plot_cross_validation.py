@@ -11,6 +11,7 @@ def plot_group_kfold():
 
     axes = plt.gca()
     axes.set_frame_on(False)
+    axes.margins(0.01)
 
     n_folds = 12
     n_samples = 12
@@ -39,7 +40,7 @@ def plot_group_kfold():
               color="w", edgecolor='k')
 
     for i in range(12):
-        axes.text((i + .5) * n_samples_per_fold, 3.5, "%d" %
+        axes.text((i + .5) * n_samples_per_fold, 3.2, "%d" %
                   groups[i], horizontalalignment="center")
     axes.invert_yaxis()
     axes.set_xlim(0, n_samples + 1)
@@ -61,6 +62,7 @@ def plot_shuffle_split():
 
     axes = plt.gca()
     axes.set_frame_on(False)
+    axes.margins(0.01)
 
     n_folds = 10
     n_samples = 10
@@ -106,6 +108,7 @@ def plot_stratified_cross_validation():
     axes.set_title("순서대로 나열된 레이블에 적용한 기본 크로스 밸리데이션")
 
     axes.set_frame_on(False)
+    axes.margins(0.01)
 
     n_folds = 3
     n_samples = 150
@@ -132,7 +135,7 @@ def plot_stratified_cross_validation():
     axes.set_yticks(np.arange(n_folds + 1) + .3)
     axes.set_yticklabels(["분할 %d" % x for x in range(1, n_folds + 1)] + ["클래스 레이블"])
     for i in range(3):
-        axes.text((i + .5) * n_samples_per_fold, 3.5, "클래스 %d" % i, horizontalalignment="center")
+        axes.text((i + .5) * n_samples_per_fold, 3.1, "클래스 %d" % i, horizontalalignment="center")
 
     ax = both_axes[1]
     ax.set_title("계층별 크로스 밸리데이션")
@@ -169,8 +172,9 @@ def plot_stratified_cross_validation():
             color="w", edgecolor='k')
 
     for i in range(3):
-        ax.text((i + .5) * n_samples_per_fold, 3.5, "클래스 %d" % i, horizontalalignment="center")
-    ax.set_ylim(4, -0.1)
+        ax.text((i + .5) * n_samples_per_fold, 3.1, "클래스 %d" % i, horizontalalignment="center")
+    # ax.set_ylim(4, -0.1)
+    ax.margins(0.01)
     plt.legend([training_bars[0], test_bars[0]], ['훈련 데이터', '테스트 데이터'], loc=(1.05, 1), frameon=False);
 
     fig.tight_layout()
@@ -178,6 +182,7 @@ def plot_stratified_cross_validation():
 
 def plot_cross_validation():
     plt.figure(figsize=(12, 2))
+    plt.margins(0.01)
     axes = plt.gca()
     axes.set_frame_on(False)
 
@@ -205,16 +210,17 @@ def plot_cross_validation():
 def plot_threefold_split():
     plt.figure(figsize=(15, 1))
     axis = plt.gca()
+    axis.margins(0.01)
     bars = axis.barh([0, 0, 0], [11.9, 2.9, 4.9], left=[0, 12, 15], color=[
                      'white', 'grey', 'grey'], hatch="//", edgecolor='k')
     bars[2].set_hatch(r"")
     axis.set_yticks(())
     axis.set_frame_on(False)
-    axis.set_ylim(-.1, .8)
-    axis.set_xlim(-0.1, 20.1)
+    # axis.set_ylim(-.1, .8)
+    # axis.set_xlim(-0.1, 20.1)
     axis.set_xticks([6, 13.3, 17.5])
     axis.set_xticklabels(["훈련 세트", "검증 세트", "테스트 세트"], fontdict={'fontsize': 20});
     axis.tick_params(length=0, labeltop=True, labelbottom=False)
-    axis.text(6, -.3, "모델 훈련", fontdict={'fontsize': 13}, horizontalalignment="center")
-    axis.text(13.3, -.3, "파라미터 선택", fontdict={'fontsize': 13}, horizontalalignment="center")
-    axis.text(17.5, -.3, "모델 평가", fontdict={'fontsize': 13}, horizontalalignment="center")
+    axis.text(6, -.75, "모델 훈련", fontdict={'fontsize': 13}, horizontalalignment="center")
+    axis.text(13.3, -.75, "파라미터 선택", fontdict={'fontsize': 13}, horizontalalignment="center")
+    axis.text(17.5, -.75, "모델 평가", fontdict={'fontsize': 13}, horizontalalignment="center")
