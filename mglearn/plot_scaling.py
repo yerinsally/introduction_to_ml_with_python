@@ -13,7 +13,7 @@ def plot_scaling():
     plt.figure(figsize=(15, 8))
     main_ax = plt.subplot2grid((2, 4), (0, 0), rowspan=2, colspan=2)
 
-    main_ax.scatter(X[:, 0], X[:, 1], c=y, cmap=cm2, s=60)
+    main_ax.scatter(X[:, 0], X[:, 1], c=y, cmap=cm2, s=60, edgecolors='black')
     maxx = np.abs(X[:, 0]).max()
     maxy = np.abs(X[:, 1]).max()
 
@@ -26,7 +26,7 @@ def plot_scaling():
     for ax, scaler in zip(other_axes, [StandardScaler(), RobustScaler(),
                                        MinMaxScaler(), Normalizer(norm='l2')]):
         X_ = scaler.fit_transform(X)
-        ax.scatter(X_[:, 0], X_[:, 1], c=y, cmap=cm2, s=60)
+        ax.scatter(X_[:, 0], X_[:, 1], c=y, cmap=cm2, s=60, edgecolors='black')
         ax.set_xlim(-2, 2)
         ax.set_ylim(-2, 2)
         ax.set_title(type(scaler).__name__)
