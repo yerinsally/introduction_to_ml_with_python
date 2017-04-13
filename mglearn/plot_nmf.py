@@ -13,12 +13,14 @@ def plot_nmf_illustration():
     # Add 8 to make sure every point lies in the positive part of the space
     X_blob = np.dot(X_, rnd.normal(size=(2, 2))) + rnd.normal(size=2) + 8
 
-    nmf = NMF(random_state=0)
+    nmf = NMF(random_state=0, n_components=2)
     nmf.fit(X_blob)
     X_nmf = nmf.transform(X_blob)
 
     fig, axes = plt.subplots(1, 2, figsize=(15, 5))
 
+    axes[0].set_xlim([0, 12])
+    axes[0].set_ylim([0, 12])
     axes[0].scatter(X_blob[:, 0], X_blob[:, 1], c=X_nmf[:, 0], linewidths=0, s=60, cmap='viridis')
     axes[0].set_xlabel("특성 1")
     axes[0].set_ylabel("특성 2")
@@ -33,6 +35,8 @@ def plot_nmf_illustration():
     nmf = NMF(random_state=0, n_components=1)
     nmf.fit(X_blob)
 
+    axes[1].set_xlim([0, 12])
+    axes[1].set_ylim([0, 12])
     axes[1].scatter(X_blob[:, 0], X_blob[:, 1], c=X_nmf[:, 0], linewidths=0,
                     s=60, cmap='viridis')
     axes[1].set_xlabel("특성 1")
