@@ -37,9 +37,9 @@ def plot_cross_val_selection():
                                      in grid_search.cv_results_['params']],
                rotation=90)
     plt.ylabel("정확도")
-    plt.xlabel("파라미터 세팅")
+    plt.xlabel("매개변수 세팅")
     plt.legend([marker_cv, marker_mean, marker_best],
-               ["크로스 밸리데이션 정확도", "평균 정확도", "최적 파라미터 세팅"],
+               ["교차 검증 정확도", "평균 정확도", "최적 매개변수 세팅"],
                loc=(1.05, .4))
 
 
@@ -76,11 +76,11 @@ def plot_grid_search_overview():
                                                        step))
     retrained_model = draw(axes, "최종 모델 학습", (3 * step, grr - 3 * step),
                            final_evaluation)
-    best_parameters = draw(axes, "최적 파라미터", (.5 * step, grr - 3 *
+    best_parameters = draw(axes, "최적 매개변수", (.5 * step, grr - 3 *
                                                      step), retrained_model)
-    cross_validation = draw(axes, "크로스 밸리데이션", (.5 * step, grr - 2 *
+    cross_validation = draw(axes, "교차 검증", (.5 * step, grr - 2 *
                                                        step), best_parameters)
-    draw(axes, "파라미터 그리드", (0.0, grr - 0), cross_validation)
+    draw(axes, "매개변수 그리드", (0.0, grr - 0), cross_validation)
     training_data = draw(axes, "훈련 데이터", (2 * step, grr - step),
                          cross_validation)
     draw(axes, "훈련 데이터", (2 * step, grr - step), retrained_model)

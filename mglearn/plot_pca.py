@@ -35,6 +35,8 @@ def plot_pca_illustration():
     axes[0].text(-1.2, -.3, "성분 2", size=14)
     axes[0].text(-3, -3.5, "성분 1", size=14)
     axes[0].set_aspect('equal')
+    axes[0].set_xlim(-8, 4)
+    axes[0].set_ylim(-8, 4)
 
     axes[1].set_title("변환된 데이터")
     axes[1].scatter(X_pca[:, 0], X_pca[:, 1], c=X_pca[:, 0], linewidths=0,
@@ -42,6 +44,7 @@ def plot_pca_illustration():
     axes[1].set_xlabel("첫번째 주성분")
     axes[1].set_ylabel("두번째 주성분")
     axes[1].set_aspect('equal')
+    axes[1].set_xlim(-8, 8)
     axes[1].set_ylim(-8, 8)
 
     pca = PCA(n_components=1)
@@ -53,6 +56,7 @@ def plot_pca_illustration():
                     linewidths=0, s=60, cmap='viridis')
     axes[2].set_xlabel("첫번째 주성분")
     axes[2].set_aspect('equal')
+    axes[2].set_xlim(-8, 8)
     axes[2].set_ylim(-8, 8)
 
     axes[3].set_title("첫번째 주성분만 사용하여 회전 복원")

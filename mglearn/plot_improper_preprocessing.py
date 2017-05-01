@@ -33,7 +33,7 @@ def plot_improper_processing():
     make_bracket("SVC fit", (6, 3), (6, 4), 12, axes[0])
     make_bracket("SVC predict", (13.4, 3), (13.4, 4), 2.5, axes[0])
 
-    axes[0].set_title("크로스 밸리데이션")
+    axes[0].set_title("교차 검증")
     axes[1].set_title("테스트 세트 예측")
 
     make_bracket("scaler fit", (7.5, 1.3), (7.5, 2.), 15, axes[1])
@@ -63,7 +63,7 @@ def plot_proper_processing():
     make_bracket("SVC fit", (6, 3), (6, 4), 12, axes[0])
     make_bracket("SVC predict", (13.4, 3), (13.4, 4), 2.5, axes[0])
 
-    axes[0].set_title("크로스 밸리데이션")
+    axes[0].set_title("교차 검증")
     axes[1].set_title("테스트 세트 예측")
 
     make_bracket("scaler fit", (7.5, 1.3), (7.5, 2.), 15, axes[1])

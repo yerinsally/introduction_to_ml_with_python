@@ -44,7 +44,7 @@ def plot_group_kfold():
                   groups[i], horizontalalignment="center")
     axes.invert_yaxis()
     axes.set_xlim(0, n_samples + 1)
-    axes.set_ylabel("크로스 밸리데이션 반복")
+    axes.set_ylabel("교차 검증 반복")
     axes.set_xlabel("데이터 포인트")
     axes.set_xticks(np.arange(n_samples) + .5)
     axes.set_xticklabels(np.arange(1, n_samples + 1))
@@ -88,7 +88,7 @@ def plot_shuffle_split():
 
     axes.invert_yaxis()
     axes.set_xlim(0, n_samples + 1)
-    axes.set_ylabel("크로스 밸리데이션 반복")
+    axes.set_ylabel("교차 검증 반복")
     axes.set_xlabel("데이터 포인트")
     axes.set_xticks(np.arange(n_samples) + .5)
     axes.set_xticklabels(np.arange(1, n_samples + 1))
@@ -105,7 +105,7 @@ def plot_stratified_cross_validation():
     fig, both_axes = plt.subplots(2, 1, figsize=(12, 5))
     # plt.title("cross_validation_not_stratified")
     axes = both_axes[0]
-    axes.set_title("순서대로 나열된 레이블에 적용한 기본 크로스 밸리데이션")
+    axes.set_title("순서대로 나열된 레이블에 적용한 기본 교차 검증")
 
     axes.set_frame_on(False)
     axes.margins(0.01)
@@ -128,7 +128,7 @@ def plot_stratified_cross_validation():
 
     axes.invert_yaxis()
     axes.set_xlim(0, n_samples + 1)
-    axes.set_ylabel("크로스 밸리데이션 반복")
+    axes.set_ylabel("교차 검증 반복")
     axes.set_xlabel("데이터 포인")
     axes.set_xticks(np.arange(n_samples_per_fold / 2., n_samples, n_samples_per_fold))
     axes.set_xticklabels(["폴드 %d" % x for x in range(1, n_folds + 1)])
@@ -138,11 +138,11 @@ def plot_stratified_cross_validation():
         axes.text((i + .5) * n_samples_per_fold, 3.1, "클래스 %d" % i, horizontalalignment="center")
 
     ax = both_axes[1]
-    ax.set_title("계층별 크로스 밸리데이션")
+    ax.set_title("계층별 교차 검증")
     ax.set_frame_on(False)
     ax.invert_yaxis()
     ax.set_xlim(0, n_samples + 1)
-    ax.set_ylabel("크로스 밸리데이션 반복")
+    ax.set_ylabel("교차 검증 반복")
     ax.set_xlabel("데이터 포인트")
 
     ax.set_yticks(np.arange(n_folds + 1) + .3)
@@ -200,7 +200,7 @@ def plot_cross_validation():
             edgecolor='k')
     axes.invert_yaxis()
     axes.set_xlim(0, n_samples + 1)
-    plt.ylabel("크로스 밸리데이션 반복")
+    plt.ylabel("교차 검증 반복")
     plt.xlabel("데이터 포인트")
     plt.xticks(np.arange(n_samples_per_fold / 2., n_samples, n_samples_per_fold), ["폴드 %d" % x for x in range(1, n_folds + 1)])
     plt.yticks(np.arange(n_folds) + .3, ["분할 %d" % x for x in range(1, n_folds + 1)])
@@ -222,5 +222,5 @@ def plot_threefold_split():
     axis.set_xticklabels(["훈련 세트", "검증 세트", "테스트 세트"], fontdict={'fontsize': 20});
     axis.tick_params(length=0, labeltop=True, labelbottom=False)
     axis.text(6, -.75, "모델 훈련", fontdict={'fontsize': 13}, horizontalalignment="center")
-    axis.text(13.3, -.75, "파라미터 선택", fontdict={'fontsize': 13}, horizontalalignment="center")
+    axis.text(13.3, -.75, "매개변수 선택", fontdict={'fontsize': 13}, horizontalalignment="center")
     axis.text(17.5, -.75, "모델 평가", fontdict={'fontsize': 13}, horizontalalignment="center")
