@@ -28,7 +28,12 @@ def visualize_coefficients(coefficients, feature_names, n_top_features=25):
         # this is not a row or column vector
         raise ValueError("coeffients must be 1d array or column vector, got"
                          " shape {}".format(coefficients.shape))
+    coefficients = coefficients.ravel()
 
+    if len(coefficients) != len(feature_names):
+        raise ValueError("Number of coefficients {} doesn't match number of"
+                         "feature names {}.".format(len(coefficients),
+                                                    len(feature_names)))
     # get coefficients with large absolute values
     coef = coefficients.ravel()
     positive_coefficients = np.argsort(coef)[-n_top_features:]

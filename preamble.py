@@ -18,8 +18,6 @@ plt.rcParams['image.interpolation'] = "none"
 plt.rcParams['savefig.bbox'] = "tight"
 plt.rcParams['lines.linewidth'] = 2
 plt.rcParams['legend.numpoints'] = 1
-plt.rcParams['axes.xmargin'] = 0.0
-plt.rcParams['axes.ymargin'] = 0.0
 plt.rc('axes', prop_cycle=(
     cycler('color', mglearn.plot_helpers.cm_cycle.colors) +
     cycler('linestyle', ['-', '-', "--", (0, (3, 3)), (0, (1.5, 1.5))])))

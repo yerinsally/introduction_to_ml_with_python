@@ -14,7 +14,8 @@ def plot_improper_processing():
 
     for axis in axes:
         bars = axis.barh([0, 0, 0], [11.9, 2.9, 4.9], left=[0, 12, 15],
-                         color=['white', 'grey', 'grey'], hatch="//", edgecolor='k')
+                         color=['white', 'grey', 'grey'], hatch="//",
+                         align='edge', edgecolor='k')
         bars[2].set_hatch(r"")
         axis.set_yticks(())
         axis.set_frame_on(False)
@@ -47,7 +48,8 @@ def plot_proper_processing():
 
     for axis in axes:
         bars = axis.barh([0, 0, 0], [11.9, 2.9, 4.9],
-                         left=[0, 12, 15], color=['white', 'grey', 'grey'], hatch="//", edgecolor='k')
+                         left=[0, 12, 15], color=['white', 'grey', 'grey'], hatch="//",
+                         align='edge', edgecolor='k')
         bars[2].set_hatch(r"")
         axis.set_yticks(())
         axis.set_frame_on(False)
