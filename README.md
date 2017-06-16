@@ -1,65 +1,38 @@
-# Introduction to Machine Learning with Python
+# 파이썬 라이브러리를 활용한 머신러닝
+#### (직접 구현하면서 배우는 본격 머신러닝 입문서)
 
-This repository holds the code for the forthcoming book "Introduction to Machine
-Learning with Python" by [Andreas Mueller](http://amueller.io) and [Sarah Guido](https://twitter.com/sarah_guido).
-You can find details about the book on the [O'Reilly website](http://shop.oreilly.com/product/0636920030515.do>).
+이 레파지토리는 안드레아스 뮐러(Andreas Mueller)와 사라 귀도(Sarah Guido)의 책인 "Introduction to Machine
+Learning with Python"의 번역서 "[파이썬 라이브러리를 활용한 머신러닝]()" 책의 코드를 담고 있습니다.
+이 레파지토리는 원서의 레파지토리를 포크한 것이며 최근 수정 사항을 반영하고 주석을 한글로 번역하였습니다.
+이 책에 대한 자세한 사항은 옮긴이의 [블로그]()나 한빛미디어 [웹사이트]()에서 확인할 수 있습니다.
 
-The books requires the current development version of scikit-learn, that is
-0.18-dev.  Most of the book can also be used with previous versions of
-scikit-learn, though you need to adjust the import for everything from the
-``model_selection`` module, mostly ``cross_val_score``, ``train_test_split``
-and ``GridSearchCV``.
+이 레파지토리는 책에 포함된 코드를 주피터 노트북 형태로 가지고 있으며 그래프와 데이터셋을 위한 ``mglearn`` 라이브러리를 함께 제공합니다. 책에서 사용하는 데이터는 aclImdb 데이터셋을 제외하고 모두 이 레파지토리에 들어 있습니다. aclImdb 데이터셋은 앤드류 마스(Anrew Mass)의 [웹사이트](http://ai.stanford.edu/~amaas/data/sentiment/)에서 다운받을 수 있습니다. 자세한 내용은 책을 참고하세요.
 
+책 커버에 있는 도룡뇽은 [헬벤더](https://ko.wikipedia.org/wiki/%ED%97%AC%EB%B2%A4%EB%8D%94)입니다.
 
-This repository provides the notebooks from which the book is created, together
-with the ``mglearn`` library of helper functions to create figures and
-datasets.
+## 에러타(Errata)
 
-For the curious ones, the cover depicts a [hellbender](https://en.wikipedia.org/wiki/Hellbender).
+"[파이썬 라이브러리를 활용한 머신러닝]()"의 에러타는 옮긴이의 [블로그]()나 한빛미디어 [웹사이트]()에서 확인할 수 있습니다. 코드에 오류가 있다면 깃허브에 이슈를 남겨 주시거나 옮긴이의 [블로그]()를 통해 연락 주세요.
 
-All datasets are included in the repository, with the exception of the aclImdb dataset, which you can download from
-the page of [Andrew Maas](http://ai.stanford.edu/~amaas/data/sentiment/). See the book for details.
+## 설치
 
+이 코드를 실행하려면 ``numpy``, ``scipy``, ``scikit-learn``, ``matplotlib``, ``pandas``와 ``pillow`` 패키지가 필요합니다.
+결정 트리와 신경망 구조에 대한 그래프를 그리려면 ``graphviz``도 필요합니다.
 
-## Errata
-Please note that the first print of the book is missing the following line when listing the assumed imports:
+개발 환경을 만들려면 [아나콘다](https://www.continuum.io/downloads)(Anaconda)를 설치하는 것이 가장 편리한 방법입니다.
 
-```python
-from IPython.display import display
-```
-Please add this line if you see an error involving ``display``.
+### conda를 사용한 패키지 설치
 
-## Setup
+설치된 파이썬이 있다면 ``conda`` 패키지 매니저를 사용하여 다음 명령을 실행하면 필요한 패키지를 모두 얻을 수 있습니다.
 
-To run the code, you need the packages ``numpy``, ``scipy``, ``scikit-learn``, ``matplotlib``, ``pandas`` and ``pillow``.
-Some of the visualizations of decision trees and neural networks structures also require ``graphviz``.
+    conda install numpy scipy scikit-learn matplotlib pandas pillow graphviz python-graphviz
 
-The easiest way to set up an environment is by installing [Anaconda](https://www.continuum.io/downloads).
+### pip를 사용한 패키지 설치
 
-### Installing packages with conda:
-If you already have a Python environment set up, and you are using the ``conda`` package manager, you can get all packages by running
-
-    conda install numpy scipy scikit-learn matplotlib pandas pillow graphviz
-
-and then *also*
-
-    pip install graphviz
-
-(Explanation: the conda package graphiz is the C library, not the python library)
-
-### Installing packages with pip
-If you already have a Python environment and are using pip to install packages, you need to run
+파이썬이 있고 pip를 사용하여 패키지를 설치하려면 다음 명령을 사용합니다.
 
     pip install numpy scipy scikit-learn matplotlib pandas pillow graphviz
 
-You also need to install the graphiz C-library, which is easiest using a package manager.
-If you are using OS X and homebrew, you can ``brew install graphviz``. If you are on Ubuntu or debian, you can ``apt-get install graphviz``.
-Installing graphviz on Windows can be tricky and using conda / anaconda is recommended.
-
-## Errata
-
-If you have errata for the (e-)book, please submit them via the [O'Reilly Website](http://www.oreilly.com/catalog/errata.csp?isbn=0636920030515).
-You can submit fixed to the code as pull-requests here, but I'd appreciate it if you would also submit them there, as this repository doesn't hold the
-"master notebooks".
+또한 graphviz C 라이브러리를 설치해야 합니다. 패키지 매니저를 사용하여 쉽게 설치할 수 있으며 macOS는 homebrew를 사용하여 ``brew install graphviz`` 명령을 사용합니다. 우분투나 데비안이라면 ``apt-get install graphviz`` 명령을 사용합니다. 윈도우즈에서 graphviz를 설치하는 것은 쉽지 않습니다. 대신 conda나 아나콘다를 사용하세요.
 
 ![cover](cover.jpg)
