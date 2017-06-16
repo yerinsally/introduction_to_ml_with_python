@@ -129,13 +129,13 @@ def plot_stratified_cross_validation():
     axes.invert_yaxis()
     axes.set_xlim(0, n_samples + 1)
     axes.set_ylabel("교차 검증 반복")
-    axes.set_xlabel("데이터 포인")
+    axes.set_xlabel("데이터 포인트")
     axes.set_xticks(np.arange(n_samples_per_fold / 2., n_samples, n_samples_per_fold))
     axes.set_xticklabels(["폴드 %d" % x for x in range(1, n_folds + 1)])
     axes.set_yticks(np.arange(n_folds + 1) + .3)
     axes.set_yticklabels(["분할 %d" % x for x in range(1, n_folds + 1)] + ["클래스 레이블"])
     for i in range(3):
-        axes.text((i + .5) * n_samples_per_fold, 3.1, "클래스 %d" % i, horizontalalignment="center")
+        axes.text((i + .5) * n_samples_per_fold, 3.4, "클래스 %d" % i, horizontalalignment="center")
 
     ax = both_axes[1]
     ax.set_title("계층별 교차 검증")
@@ -172,7 +172,7 @@ def plot_stratified_cross_validation():
             color="w", edgecolor='k', align='edge')
 
     for i in range(3):
-        ax.text((i + .5) * n_samples_per_fold, 3.1, "클래스 %d" % i, horizontalalignment="center")
+        ax.text((i + .5) * n_samples_per_fold, 3.4, "클래스 %d" % i, horizontalalignment="center")
     # ax.set_ylim(4, -0.1)
     ax.margins(0.01)
     plt.legend([training_bars[0], test_bars[0]], ['훈련 데이터', '테스트 데이터'], loc=(1.05, 1), frameon=False);
@@ -221,6 +221,6 @@ def plot_threefold_split():
     axis.set_xticks([6, 13.3, 17.5])
     axis.set_xticklabels(["훈련 세트", "검증 세트", "테스트 세트"], fontdict={'fontsize': 20});
     axis.tick_params(length=0, labeltop=True, labelbottom=False)
-    axis.text(6, -.75, "모델 훈련", fontdict={'fontsize': 13}, horizontalalignment="center")
-    axis.text(13.3, -.75, "매개변수 선택", fontdict={'fontsize': 13}, horizontalalignment="center")
-    axis.text(17.5, -.75, "모델 평가", fontdict={'fontsize': 13}, horizontalalignment="center")
+    axis.text(6, -.3, "모델 훈련", fontdict={'fontsize': 13}, horizontalalignment="center")
+    axis.text(13.3, -.3, "매개변수 선택", fontdict={'fontsize': 13}, horizontalalignment="center")
+    axis.text(17.5, -.3, "모델 평가", fontdict={'fontsize': 13}, horizontalalignment="center")

@@ -60,7 +60,7 @@ def heatmap(values, xlabel, ylabel, xticklabels, yticklabels, cmap=None,
     if ax is None:
         ax = plt.gca()
     # plot the mean cross-validation scores
-    img = ax.pcolor(values, cmap=cmap, vmin=None, vmax=None)
+    img = ax.pcolor(values, cmap=cmap, vmin=vmin, vmax=vmax)
     img.update_scalarmappable()
     ax.set_xlabel(xlabel)
     ax.set_ylabel(ylabel)

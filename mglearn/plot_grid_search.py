@@ -39,7 +39,7 @@ def plot_cross_val_selection():
     plt.ylabel("정확도")
     plt.xlabel("매개변수 세팅")
     plt.legend([marker_cv, marker_mean, marker_best],
-               ["교차 검증 정확도", "평균 정확도", "최적 매개변수 세팅"],
+               ["교차 검증 정확도", "평균 정확도", "최적 매개변수 설정"],
                loc=(1.05, .4))
 
 

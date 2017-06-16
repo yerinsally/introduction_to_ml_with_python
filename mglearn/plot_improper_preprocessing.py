@@ -60,7 +60,7 @@ def plot_proper_processing():
         axis.text(6, -.8, "훈련 폴드", fontdict={'fontsize': 14}, horizontalalignment="center")
         axis.text(13.5, -.8, "검증 폴드", fontdict={'fontsize': 14}, horizontalalignment="center")
         axis.text(17.5, -.8, "테스트 세트", fontdict={'fontsize': 14}, horizontalalignment="center")
-      
+
     make_bracket("scaler fit", (6, 1.3), (6, 2.), 12, axes[0])
     make_bracket("SVC fit", (6, 3), (6, 4), 12, axes[0])
     make_bracket("SVC predict", (13.4, 3), (13.4, 4), 2.5, axes[0])
