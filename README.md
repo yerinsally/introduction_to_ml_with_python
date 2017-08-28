@@ -1,10 +1,12 @@
-# 파이썬 라이브러리를 활용한 머신러닝
+﻿# 파이썬 라이브러리를 활용한 머신러닝
 #### (직접 구현하면서 배우는 본격 머신러닝 입문서)
 
 이 레파지토리는 안드레아스 뮐러(Andreas Mueller)와 사라 귀도(Sarah Guido)의 책인 "Introduction to Machine
 Learning with Python"의 번역서 "[파이썬 라이브러리를 활용한 머신러닝](https://tensorflow.blog/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%9C-%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D/)" 책의 코드를 담고 있습니다.
 이 레파지토리는 원서의 레파지토리를 포크한 것이며 최근 수정 사항을 반영하고 주석을 한글로 번역하였습니다.
 이 책에 대한 자세한 사항은 옮긴이의 [블로그](https://tensorflow.blog/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%9C-%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D/)나 한빛미디어 [웹사이트](http://www.hanbit.co.kr/store/books/look.php?p_code=B6119391002)에서 확인할 수 있습니다.
+
+이 책의 내용은 scikit-learn 0.18, 0.19에서 테스트 되었습니다.
 
 이 레파지토리는 책에 포함된 코드를 주피터 노트북 형태로 가지고 있으며 그래프와 데이터셋을 위한 ``mglearn`` 라이브러리를 함께 제공합니다.
 aclImdb 데이터셋과 Naver sentiment movie corpus를 제외하고는 책에서 사용하는 데이터도 모두 포함하고 있습니다.
