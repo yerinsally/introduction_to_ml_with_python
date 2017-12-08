@@ -98,10 +98,10 @@ def plot_pca_whitening():
 @memory.cache
 def pca_faces(X_train, X_test):
     # copy and pasted from nmf. refactor?
-    # Build NMF models with 10, 50, 100, 500 and 2000 components
+    # Build NMF models with 10, 50, 100, 500 components
     # this list will hold the back-transformd test-data
     reduced_images = []
-    for n_components in [10, 50, 100, 500, 2000]:
+    for n_components in [10, 50, 100, 500]:
         # build the NMF model
         pca = PCA(n_components=n_components)
         pca.fit(X_train)
