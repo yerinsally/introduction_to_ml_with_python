@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 
 def plot_animal_tree(ax=None):
     import graphviz
+    plt.figure(dpi=100)
     if ax is None:
         ax = plt.gca()
     mygraph = graphviz.Digraph(node_attr={'shape': 'box'},
