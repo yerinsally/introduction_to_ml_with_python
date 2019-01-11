@@ -4,9 +4,9 @@ dependencies:
 - matplotlib
 - numpy
 - pandas
-- python=3.5
+- python=3.7
 - scipy
-- ipython-notebook
+- jupyter
 - scikit-learn
 - pillow
 - spacy
