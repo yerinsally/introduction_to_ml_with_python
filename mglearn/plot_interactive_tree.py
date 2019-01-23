@@ -26,7 +26,6 @@ def tree_image(tree, fout=None):
     dot_data = StringIO()
     export_graphviz(tree, out_file=dot_data, max_depth=9, impurity=False)
     data = dot_data.getvalue()
-    #data = re.sub(r"gini = 0\.[0-9]+\\n", "", dot_data.getvalue())
     data = re.sub(r"samples = [0-9]+\\n", "", data)
     data = re.sub(r"\\nsamples = [0-9]+", "", data)
     data = re.sub(r"value", "counts", data)
@@ -43,8 +42,9 @@ def plot_tree_progressive():
     plt.figure(dpi=100)
     ax = plt.gca()
     discrete_scatter(X[:, 0], X[:, 1], y, ax=ax)
-    ax.set_xticks(())
-    ax.set_yticks(())
+    ax.set_xlabel("특성 0")
+    ax.set_xlabel("특성 1")
+    plt.legend(["클래스 0", "클래스 1"], loc='best')
 
     axes = []
     for i in range(3):
