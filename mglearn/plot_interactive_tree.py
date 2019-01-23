@@ -43,7 +43,7 @@ def plot_tree_progressive():
     ax = plt.gca()
     discrete_scatter(X[:, 0], X[:, 1], y, ax=ax)
     ax.set_xlabel("특성 0")
-    ax.set_xlabel("특성 1")
+    ax.set_ylabel("특성 1")
     plt.legend(["클래스 0", "클래스 1"], loc='best')
 
     axes = []
