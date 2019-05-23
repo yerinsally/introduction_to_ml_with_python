@@ -1,4 +1,4 @@
-name: introduction_to_ml_with_python
+name: intro-ml
 dependencies:
 - ipython
 - matplotlib
@@ -17,5 +17,4 @@ dependencies:
     - graphviz
     - konlpy
     - JPype1-py3
-prefix: /Users/rickypark/anaconda/envs/introduction_to_ml_with_python
 
