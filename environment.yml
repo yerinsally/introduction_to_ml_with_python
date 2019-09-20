@@ -12,6 +12,7 @@ dependencies:
 - spacy
 - nltk
 - cython
+- imageio
 - pip:
     - watermark
     - graphviz
