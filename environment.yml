@@ -13,6 +13,7 @@ dependencies:
 - nltk
 - cython
 - imageio
+- joblib
 - pip:
     - watermark
     - graphviz
