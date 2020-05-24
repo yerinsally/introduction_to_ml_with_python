@@ -13,7 +13,7 @@ def plot_nmf_illustration():
     # Add 8 to make sure every point lies in the positive part of the space
     X_blob = np.dot(X_, rnd.normal(size=(2, 2))) + rnd.normal(size=2) + 8
 
-    nmf = NMF(random_state=0, n_components=2)
+    nmf = NMF(random_state=0, n_components=2, max_iter=2000, tol=1e-2)
     nmf.fit(X_blob)
     X_nmf = nmf.transform(X_blob)
 
