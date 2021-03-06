@@ -13,7 +13,7 @@ def plot_nmf_illustration():
     # Add 8 to make sure every point lies in the positive part of the space
     X_blob = np.dot(X_, rnd.normal(size=(2, 2))) + rnd.normal(size=2) + 8
 
-    nmf = NMF(random_state=0, n_components=2, init='nndsvda', max_iter=5000, tol=1e-1)
+    nmf = NMF(random_state=0, n_components=2, init='random', tol=1e-1)
     nmf.fit(X_blob)
     X_nmf = nmf.transform(X_blob)
 
@@ -24,15 +24,15 @@ def plot_nmf_illustration():
     axes[0].scatter(X_blob[:, 0], X_blob[:, 1], c=X_nmf[:, 0], linewidths=0, s=60, cmap='viridis')
     axes[0].set_xlabel("특성 1")
     axes[0].set_ylabel("특성 2")
-    axes[0].arrow(0, 0, nmf.components_[0, 0]/2, nmf.components_[0, 1]/2, width=.1,
+    axes[0].arrow(0, 0, nmf.components_[0, 0], nmf.components_[0, 1], width=.1,
                   head_width=.3, color='k')
-    axes[0].arrow(0, 0, nmf.components_[1, 0]/2, nmf.components_[1, 1]/2, width=.1,
+    axes[0].arrow(0, 0, nmf.components_[1, 0], nmf.components_[1, 1], width=.1,
                   head_width=.3, color='k')
     axes[0].set_aspect('equal')
     axes[0].set_title("성분이 2개인 NMF")
 
     # second plot
-    nmf = NMF(random_state=0, n_components=1, init='nndsvda', max_iter=5000, tol=1e-1)
+    nmf = NMF(random_state=0, n_components=1, init='random', tol=1e-1)
     nmf.fit(X_blob)
 
     axes[1].set_xlim([0, 12])
@@ -48,14 +48,14 @@ def plot_nmf_illustration():
     axes[1].set_title("성분이 1개인 NMF")
 
 
-@memory.cache
+# @memory.cache
 def nmf_faces(X_train, X_test):
     # Build NMF models with 10, 50, 100 and 500 components
     # this list will hold the back-transformd test-data
     reduced_images = []
     for n_components in [10, 50, 100, 500]:
         # build the NMF model
-        nmf = NMF(n_components=n_components, init='nndsvda', random_state=0)
+        nmf = NMF(n_components=n_components, init='nndsvda', max_iter=5000, random_state=0)
         nmf.fit(X_train)
         # transform the test data (afterwards has n_components many dimensions)
         X_test_nmf = nmf.transform(X_test)
