@@ -65,7 +65,7 @@ def plot_single_hidden_layer_graph():
 
 def plot_two_hidden_layer_graph():
     import graphviz
-    nn_graph = graphviz.Digraph(node_attr={'shape': 'circle', 'fixedsize': 'True'},
+    nn_graph = graphviz.Digraph(node_attr={'shape': 'circle', 'fixedsize': 'True', 'fontsize':'10'},
                                 graph_attr={'rankdir': 'LR', 'splines': 'line'})
 
     inputs = graphviz.Digraph(node_attr={'shape': 'circle'}, name="cluster_0")
