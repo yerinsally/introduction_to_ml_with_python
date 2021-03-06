@@ -1,3 +1,5 @@
+tmp*
+*.dot
 .DS_Store
 .idea
 .env
