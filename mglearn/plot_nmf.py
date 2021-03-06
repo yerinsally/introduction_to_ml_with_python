@@ -55,7 +55,7 @@ def nmf_faces(X_train, X_test):
     reduced_images = []
     for n_components in [10, 50, 100, 500]:
         # build the NMF model
-        nmf = NMF(n_components=n_components, init='nndsvda', max_iter=5000, random_state=0)
+        nmf = NMF(n_components=n_components, init='random', solver='mu', max_iter=5000, random_state=0)
         nmf.fit(X_train)
         # transform the test data (afterwards has n_components many dimensions)
         X_test_nmf = nmf.transform(X_test)
