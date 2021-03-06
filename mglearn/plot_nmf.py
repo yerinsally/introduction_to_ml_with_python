@@ -13,7 +13,7 @@ def plot_nmf_illustration():
     # Add 8 to make sure every point lies in the positive part of the space
     X_blob = np.dot(X_, rnd.normal(size=(2, 2))) + rnd.normal(size=2) + 8
 
-    nmf = NMF(random_state=0, n_components=2, max_iter=5000, tol=1e-1)
+    nmf = NMF(random_state=0, n_components=2, init='nndsvda', max_iter=5000, tol=1e-1)
     nmf.fit(X_blob)
     X_nmf = nmf.transform(X_blob)
 
@@ -32,7 +32,7 @@ def plot_nmf_illustration():
     axes[0].set_title("성분이 2개인 NMF")
 
     # second plot
-    nmf = NMF(random_state=0, n_components=1, max_iter=5000, tol=1e-1)
+    nmf = NMF(random_state=0, n_components=1, init='nndsvda', max_iter=5000, tol=1e-1)
     nmf.fit(X_blob)
 
     axes[1].set_xlim([0, 12])
@@ -55,7 +55,7 @@ def nmf_faces(X_train, X_test):
     reduced_images = []
     for n_components in [10, 50, 100, 500]:
         # build the NMF model
-        nmf = NMF(n_components=n_components, random_state=0)
+        nmf = NMF(n_components=n_components, init='nndsvda', random_state=0)
         nmf.fit(X_train)
         # transform the test data (afterwards has n_components many dimensions)
         X_test_nmf = nmf.transform(X_test)
