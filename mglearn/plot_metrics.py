@@ -7,7 +7,7 @@ from .plot_helpers import ReBl
 
 def plot_confusion_matrix_illustration():
     plt.figure(figsize=(8, 8))
-    confusion = np.array([[401, 2], [8, 39]])
+    confusion = np.array([[402, 1], [6, 41]])
     plt.text(0.40, .7, confusion[0, 0], size=70, horizontalalignment='right')
     plt.text(0.40, .2, confusion[1, 0], size=70, horizontalalignment='right')
     plt.text(.90, .7, confusion[0, 1], size=70, horizontalalignment='right')
