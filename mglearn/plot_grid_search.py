@@ -35,7 +35,7 @@ def plot_cross_val_selection():
                                     markeredgewidth=3)
 
     plt.xticks(range(len(results)), [str(x).strip("{}").replace("'", "") for x
-                                     in grid_search.cv_results_['params']],
+                                     in grid_search.cv_results_['params']][15:],
                rotation=90)
     plt.ylabel("정확도")
     plt.xlabel("매개변수 세팅")
