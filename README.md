@@ -1,6 +1,6 @@
 ﻿# [개정판] 파이썬 라이브러리를 활용한 머신러닝
 
-#### <font color='red'>이 책의 개정2판이 출간되었습니다. 개정 2판의 코드는 [여기](https://github.com/rickiepark/intro_ml_with_python_2nd_revised)를 참고하세요.</font>
+#### 이 책의 개정2판이 출간되었습니다. 개정 2판의 코드는 [여기](https://github.com/rickiepark/intro_ml_with_python_2nd_revised)를 참고하세요.
 
 #### 사이킷런(Scikit-Learn) 핵심 개발자가 쓴 머신러닝과 데이터 과학 실무서
 
