@@ -1,4 +1,7 @@
 ﻿# [개정판] 파이썬 라이브러리를 활용한 머신러닝
+
+#### <font color='red'>이 책의 개정2판이 출간되었습니다. 개정 2판의 코드는 [여기](https://github.com/rickiepark/intro_ml_with_python_2nd_revised)를 참고하세요.</font>
+
 #### 사이킷런(Scikit-Learn) 핵심 개발자가 쓴 머신러닝과 데이터 과학 실무서
 
 ![cover](cover.jpg)
@@ -33,7 +36,7 @@ Naver sentiment movie corpus는 루시 님의 [깃허브](https://github.com/e9t
 설치된 파이썬이 있다면 ``conda`` 패키지 매니저를 사용하여 다음 명령을 실행하면 필요한 패키지를 모두 얻을 수 있습니다.
 
     conda install numpy scipy scikit-learn matplotlib pandas pillow graphviz python-graphviz
-    
+
 7장을 위해서는 ``nltk``와 ``spacy``도 설치해야 합니다.
 
     conda install nltk spacy
@@ -47,7 +50,7 @@ Naver sentiment movie corpus는 루시 님의 [깃허브](https://github.com/e9t
 또한 graphviz C 라이브러리를 설치해야 합니다. 패키지 매니저를 사용하여 쉽게 설치할 수 있으며 macOS는 homebrew를 사용하여 ``brew install graphviz`` 명령을 사용합니다. 우분투나 데비안이라면 ``apt-get install graphviz`` 명령을 사용합니다. 윈도우즈에서 graphviz를 설치하는 것은 쉽지 않습니다. 대신 conda나 아나콘다를 사용하세요. 7장을 위해서는 ``nltk``와 ``spacy``도 설치해야 합니다.
 
     pip install nltk spacy
-    
+
 ### 영어 언어 모델 다운로드하기
 
 7장에서 ``spacy``의 영어 언어 모델을 다운로드하려면 다음 명령을 사용합니다.
